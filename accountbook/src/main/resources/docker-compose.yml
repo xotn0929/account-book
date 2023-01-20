@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  mysql-db:
+    container_name: mysql-db
+    image: mysql/mysql-server:5.7
+
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_DATABASE: 'accountbook'
+      MYSQL_USER: acb
+      MYSQL_PASSWORD: test
+      TZ: Asia/Seoul
+    
+    networks:
+      - spring-network
+
+    volumes:
+#      - ./mysql_data:/var/lib/mysql
+      - ./conf:/etc/mysql/conf.d
+      - ./init:/docker-entrypoint-initdb.d
+    
+    ports:
+      - '3306:3306'
+
+    command:
+      - '--character-set-server=utf8mb4'
+      - '--collation-server=utf8mb4_unicode_ci'
+    
+    restart: always
+  
+  mysql-adminer:
+    container_name: mysql-admin
+    image: adminer:latest
+    ports:
+      - "18080:8080"
+    environment:
+      - ADMINER_DEFAULT_SERVER=mysql-db
+      - ADMINER_DESIGN=hydra
+      - ADMINER_PLUGINS=tables-filter tinymce
+    depends_on:
+      - mysql-db
+    networks:
+      - spring-network
+
+networks:
+  spring-network:
+    driver: bridge
+ 
