@@ -21,10 +21,23 @@
     - Delete YN ( default 'N' ) : 삭제여부
 ```
 
-2. 도커 설정
+2. 도커 MYSQL 설정
 ```
 1. docker-compose.yml 작성
     - resources/docker-compose.yml
 
     - mysql 5.7 , mysql-adminer 설정
+```
+
+3. R2DBC 설정 및 테스트
+```
+1. application.yml 설정
+spring:
+  r2dbc:
+    url: 
+    username: 
+    password: 
+
+2. Entity, DTO, Repository 생성
+
 ```
