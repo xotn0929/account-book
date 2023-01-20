@@ -5,18 +5,24 @@
 1. 도메인 정의
 ```
 1. User
-    - Primary Key (Long)
-    - User ID
-    - User PW
-    - Token
+    - id (BIGINT)               : 기본키
+    - User ID                   : 회원 ID
+    - User PW                   : 패스워드(암호화)
+    - Token                     : 재인증 토큰
 
 2. Expenditure
-    - Primary Key (Long)
-    - Currency
-    - Money
-    - Use Date
-    - Memo
-    - Create Date
-    - Update Date
-    - Delete YN ( default 'N' )
+    - id (BIGINT)               : 기본키
+    - Currency                  : 통화
+    - Money                     : 지출
+    - Use Date                  : 지출일
+    - Memo                      : 메모
+    - Create Date               : 생성일
+    - Update Date               : 수정일
+    - Delete YN ( default 'N' ) : 삭제여부
+```
+
+2. 도커 설정
+```
+1. docker-compose.yml 작성
+    - resources/docker-compose.yml
 ```
