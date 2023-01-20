@@ -25,4 +25,6 @@
 ```
 1. docker-compose.yml 작성
     - resources/docker-compose.yml
+
+    - mysql 5.7 , mysql-adminer 설정
 ```
