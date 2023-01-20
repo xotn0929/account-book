@@ -1,1 +1,10 @@
+spring:
+  r2dbc:
+    url: r2dbc:pool:mysql://localhost:3306/accountbook
+    username: acb
+    password: test
 
+# R2DBC 쿼리 로깅
+logging:
+  level:
+    org.springframework.r2dbc.core: debug
