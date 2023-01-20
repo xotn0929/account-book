@@ -13,16 +13,18 @@ USE accountbook;
  */
 DROP TABLE IF EXISTS TB_USER;
 CREATE TABLE TB_USER(
-    id VARCHAR(36) PRIMARY KEY COMMENT '기본키',
+    id BINARY(16) PRIMARY KEY COMMENT '기본키',
     user_id VARCHAR(50) NOT NULL COMMENT '사용자 아이디',
     user_pw VARCHAR(1000) NOT NULL COMMENT '사용자 비밀번호',
-    token VARCHAR(500) COMMENT '재인증 토큰'
+    token VARCHAR(500) COMMENT '재인증 토큰',
+    create_date TIMESTAMP COMMENT '생성일시',
+    update_date TIMESTAMP COMMENT '수정일시'
 ) COMMENT '회원' DEFAULT charset=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 
 DROP TABLE IF EXISTS TB_EXPENDITURE;
 CREATE TABLE TB_EXPENDITURE(
-    id VARCHAR(36) PRIMARY KEY COMMENT '기본키',
+    id BINARY(16) PRIMARY KEY COMMENT '기본키',
     currency VARCHAR(5) NOT NULL COMMENT '통화',
     money VARCHAR(1000) NOT NULL COMMENT '지출',
     use_date DATETIME NOT NULL COMMENT '지출일',
