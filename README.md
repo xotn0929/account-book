@@ -31,13 +31,13 @@
 
 3. R2DBC 설정 및 테스트
 ```
-1. application.yml 설정
-spring:
-  r2dbc:
-    url: 
-    username: 
-    password: 
+1. application.yml R2DBC 설정
 
 2. Entity, DTO, Repository 생성
+
+3. Dockerfile 생성
+
+4. docker-compose.yml
+    - application 추가
 
 ```
