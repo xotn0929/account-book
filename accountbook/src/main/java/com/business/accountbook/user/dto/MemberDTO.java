@@ -2,6 +2,8 @@ package com.business.accountbook.user.dto;
 
 import java.util.UUID;
 
+import com.business.accountbook.user.entity.Member;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import jakarta.validation.constraints.Email;
@@ -39,18 +41,17 @@ public class MemberDTO {
     }
 
     // DTO -> entity
-    // TODO: Member Entity 생성
-/*     public Member toEntity(){
+    public Member toEntity(){
         return Member.builder().id(id)
-                                .userId(UserId)
-                                .userPw(UserPw)
+                                .UserId(UserId)
+                                .UserPw(UserPw)
                                 .build();
     }
- */
+
     // entity -> DTO
-/*     public MemberDTO(Member member){
+    public MemberDTO(Member member){
         this.id = member.getId();
         this.UserId = member.getUserId();
-        this.UserPw = member.gerUserPw();
-    } */
+        this.UserPw = member.getUserPw();
+    }
 }
