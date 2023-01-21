@@ -1,6 +1,6 @@
 spring:
   r2dbc:
-    url: r2dbc:pool:mysql://localhost:3306/accountbook
+    url: r2dbc:pool:mysql://mysql-db:3306/accountbook
     username: acb
     password: test
 
