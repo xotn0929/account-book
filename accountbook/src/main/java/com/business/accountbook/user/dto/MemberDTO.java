@@ -4,8 +4,7 @@ import java.util.UUID;
 
 import com.business.accountbook.user.entity.Member;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
@@ -14,44 +13,44 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@ApiModel(description = "RequestBody")
+@Schema(description = "RequestBody")
 @NoArgsConstructor
 @Getter
 @EqualsAndHashCode
 @ToString
 public class MemberDTO {
     
-    @ApiModelProperty(value = "기본키", dataType = "UUID")
+    @Schema(name = "아이디", example = "UUID", type = "UUID")
     private UUID id;
     
-    @ApiModelProperty(value = "회원 아이디", dataType = "String", example = "test@google.com")
+    @Schema(name = "회원 아이디", example = "test@google.com", type = "String")
     @NotBlank
     @Email
-    private String UserId;
+    private String username;
 
-    @ApiModelProperty(value = "회원 비밀번호", dataType = "String")
+    @Schema(name = "회원 비밀번호", example = "test", type = "String")
     @NotBlank
-    private String UserPw;
+    private String password;
 
     @Builder
     public MemberDTO(UUID id, String UserId, String UserPw){
         this.id = id;
-        this.UserId = UserId;
-        this.UserPw = UserPw;
+        this.username = UserId;
+        this.password = UserPw;
     }
 
     // DTO -> entity
     public Member toEntity(){
         return Member.builder().id(id)
-                                .UserId(UserId)
-                                .UserPw(UserPw)
+                                .UserId(username)
+                                .UserPw(password)
                                 .build();
     }
 
     // entity -> DTO
     public MemberDTO(Member member){
         this.id = member.getId();
-        this.UserId = member.getUserId();
-        this.UserPw = member.getUserPw();
+        this.username = member.getUserId();
+        this.password = member.getUserPw();
     }
 }
