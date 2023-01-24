@@ -34,7 +34,7 @@ services:
     container_name: mysql-admin
     image: adminer:latest
     ports:
-      - "18080:8080"
+      - "18080:8083"
     environment:
       - ADMINER_DEFAULT_SERVER=mysql-db
       - ADMINER_DESIGN=hydra
@@ -49,10 +49,12 @@ services:
     depends_on:
       - mysql-db
     restart: always
-    expose:
-      - 8080
-    networks:
-      - spring-network
+    ports:
+      - "8081:8080"
+#    expose:
+#      - 8081
+#    networks:
+#      - spring-network
 
 networks:
   spring-network:

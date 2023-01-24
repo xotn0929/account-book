@@ -17,6 +17,7 @@ RUN gradle build -x test --parallel
 
 # Application
 FROM openjdk:17.0-slim
+EXPOSE 8081
 WORKDIR /app
 
 # 빌더 이미지에서 jar 파일만 복사

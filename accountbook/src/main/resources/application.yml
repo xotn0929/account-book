@@ -4,7 +4,32 @@ spring:
     username: acb
     password: test
 
+springdoc:
+  packages-to-scan: com.business.accountbook
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    path: /swagger-ui.html
+    disable-swagger-default-url: true
+    display-request-duration: true
+    operations-sorter: alpha
+
+server:
+  servlet:
+    context-path: /swagger-ui
+
 # R2DBC 쿼리 로깅
 logging:
   level:
     org.springframework.r2dbc.core: debug
+
+app:
+  public_routes: /login,/actuator/**,/auth/**,/favicon.ico,/v2/api-docs,/swagger-resources,/swagger-resources/**,/configuration/ui,/configuration/security,/swagger-ui.html,/webjars/**,/v3/api-docs/**,/swagger-ui/**,/swagger-ui
+jwt:
+  password:
+    encoder:
+      secret: oZr417KU7ipPoCCGY0-cPcGu0PpT1_aG9o-BD1KcnN3BpZPrLcNKgcF9QXXJwrY50Whd7Ij51t45oD0ctn-Vo032uFoMtnNzvzpOFq
+      iteration: 33
+      keylength: 256
+  secret: AMDXGbO7gGwf3hoFPpm6GwQvFrqoCsn2
+  expiration: 28800
